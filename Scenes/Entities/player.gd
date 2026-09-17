@@ -7,20 +7,25 @@ hiden,
 jump,
 fall,
 landing,
-death
+death,
+reset
 }
 @export var speed = 300.0
 @export var running_speed = 600.0
+@export var airborn_speed = 200.0
 @export var jump_velocity = -400.0
+@export var double_jump_velocity = -300
 @export var run_charge_limit: float = .5
 @export var landing_charge_limit: float = .6
+@export var double_jump_charge_limit: float = .3
 @export var respawn_rate: float = 2
-@export var respawn_position: Vector2 = Vector2(41.0, 572.0)
+@export var respawn_position: Vector2 = global_position
 
 var state = States.idle
 var run_charge: float = 0
 var landing_charge: float = 0
 var respawn_charge: float = 0
+var double_jump_charge: float = 0
 var can_hide: bool = false
 var can_die: bool = false
 
@@ -29,6 +34,7 @@ var jump_pressed: bool = false
 var hide_pressed: bool = false
 var run_held: bool = false
 var run_released: bool = false
+var reset_pressed: bool = false
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $StateLabel
@@ -40,6 +46,7 @@ func _player_input() -> void:
 		hide_pressed = Input.is_action_just_pressed("Hide")
 		run_held = Input.is_action_pressed("Run")
 		run_released = Input.is_action_just_released("Run")
+		reset_pressed = Input.is_action_just_pressed("Quick Reload")
 	
 func _animation():
 	$GPUParticlesRUN.emitting = false
@@ -105,6 +112,9 @@ func _state_idle() -> void:
 	if can_die:
 		_change_state(States.death)
 		return
+	if reset_pressed:
+		_change_state(States.reset)
+		return
 		
 func _state_hiden() -> void:
 	velocity.x = move_toward(velocity.x, 0, speed)
@@ -165,17 +175,25 @@ func _state_run() -> void:
 
 func _state_jump(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(speed, delta)
+	_move_to(airborn_speed, delta)
+	double_jump_charge += delta
+	if double_jump_charge >= double_jump_charge_limit and jump_pressed:
+		velocity.y = double_jump_velocity
+		return
 	if velocity.y > 0:
 		_change_state(States.fall)
 		return
 	if can_die:
 		_change_state(States.death)
 		return
+	if reset_pressed:
+		_change_state(States.reset)
+		return
+
 
 func _state_fall(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(speed, delta)
+	_move_to(airborn_speed, delta)
 	landing_charge += delta
 	if landing_charge >= landing_charge_limit:
 		_change_state(States.landing)
@@ -186,10 +204,13 @@ func _state_fall(delta: float) -> void:
 	if can_die:
 		_change_state(States.death)
 		return
+	if reset_pressed:
+		_change_state(States.reset)
+		return
 
 func _state_landing(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(speed, delta)
+	_move_to(airborn_speed, delta)
 	if is_on_floor():
 		$LandSfx.play()
 		_change_state(States.idle)
@@ -197,7 +218,10 @@ func _state_landing(delta: float) -> void:
 	if can_die:
 		_change_state(States.death)
 		return
-		
+	if reset_pressed:
+		_change_state(States.reset)
+		return
+
 func _state_death(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, 0, speed)
 	velocity.y = move_toward(velocity.y, 0, speed)
@@ -206,12 +230,17 @@ func _state_death(delta: float) -> void:
 		global_position = respawn_position
 		can_die = false
 		_change_state(States.idle)
+		
+func _state_reset() -> void:
+	global_position = respawn_position
+	_change_state(States.idle)
 
 func _change_state(new_state: States) -> void:
 	if new_state == state:
 		return
 	match new_state:
 		States.jump:
+			double_jump_charge = 0
 			$JumpSfx.play()
 			velocity.y = jump_velocity
 		States.walk:
@@ -244,6 +273,8 @@ func _run_state(delta: float) -> void:
 			_state_hiden()
 		States.death:
 			_state_death(delta)
+		States.reset:
+			_state_reset()
 	state_label.text = States.keys()[state]
 	can_hide_label.text = "can hide:" + str(can_hide)
 

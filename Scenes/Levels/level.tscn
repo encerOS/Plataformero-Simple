@@ -580,7 +580,7 @@ tile_set = SubResource("TileSet_av385")
 [node name="Entities" type="Node2D" parent="." unique_id=1885716387]
 
 [node name="Player" parent="Entities" unique_id=1745110940 instance=ExtResource("1_f1n8c")]
-position = Vector2(40, 535)
+position = Vector2(39, 538)
 collision_mask = 63
 
 [node name="HidingZone" type="Area2D" parent="." unique_id=1165518750]
@@ -846,23 +846,23 @@ color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="DeathZone2" unique_id=206112846]
-position = Vector2(404, -296.92438)
+position = Vector2(400, -328.92438)
 rotation = 3.1415927
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D6" type="Polygon2D" parent="DeathZone2" unique_id=932559619]
-position = Vector2(404, -296.92438)
+position = Vector2(400, -328.92438)
 rotation = 3.136855
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="DeathZone2" unique_id=1567953003]
-position = Vector2(426, -296.92438)
+position = Vector2(422, -328.92438)
 rotation = 3.136855
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D7" type="Polygon2D" parent="DeathZone2" unique_id=656254027]
-position = Vector2(426, -296.92438)
+position = Vector2(422, -328.92438)
 rotation = 3.136855
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
