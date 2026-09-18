@@ -461,7 +461,8 @@ initial_velocity_min = 38.46
 initial_velocity_max = 151.09999
 color_ramp = SubResource("GradientTexture1D_buy7r")
 
-[node name="Player" type="CharacterBody2D" unique_id=1745110940]
+[node name="Player" type="CharacterBody2D" unique_id=1745110940 groups=["Player"]]
+collision_mask = 255
 script = ExtResource("1_blnjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827245466]
@@ -533,7 +534,11 @@ wait_time = 0.25
 [node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=886485013]
 stream = ExtResource("14_at1v1")
 
+[node name="OnAirTimer" type="Timer" parent="." unique_id=380379965]
+wait_time = 0.2
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RunStepTimer" to="." method="_on_run_step_timer_timeout"]
+[connection signal="timeout" from="OnAirTimer" to="." method="_on_on_air_timer_timeout"]

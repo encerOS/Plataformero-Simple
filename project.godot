@@ -24,6 +24,10 @@ GameManager="*uid://d023bwwi5s4ut"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Player=""
+
 [input]
 
 Left={
@@ -65,6 +69,7 @@ Hide={
 2d_physics/layer_4="CheckPointZone"
 2d_physics/layer_5="FinishLine"
 2d_physics/layer_6="HidingZone"
+2d_physics/layer_7="Traps"
 
 [physics]
 

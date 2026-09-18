@@ -12,12 +12,11 @@ reset
 }
 @export var speed = 300.0
 @export var running_speed = 600.0
-@export var airborn_speed = 200.0
 @export var jump_velocity = -400.0
+@export var air_speed = 1000
 @export var double_jump_velocity = -300
 @export var run_charge_limit: float = .5
 @export var landing_charge_limit: float = .6
-@export var double_jump_charge_limit: float = .3
 @export var respawn_rate: float = 2
 @export var respawn_position: Vector2 = global_position
 
@@ -25,7 +24,7 @@ var state = States.idle
 var run_charge: float = 0
 var landing_charge: float = 0
 var respawn_charge: float = 0
-var double_jump_charge: float = 0
+var double_jump_charge: bool = false
 var can_hide: bool = false
 var can_die: bool = false
 
@@ -50,6 +49,9 @@ func _player_input() -> void:
 	
 func _animation():
 	$GPUParticlesRUN.emitting = false
+	if reset_pressed:
+		$AnimatedSprite2D.play('idle')
+		return
 	if can_die:
 		$AnimatedSprite2D.play('reset')
 		return
@@ -87,10 +89,18 @@ func _animation():
 		return
 
 func _move_to(moving_speed, delta: float = 0.0) -> void:
+	if direction == 0.0 and is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, speed)
+		return
 	if direction == 0.0 and !is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, moving_speed * delta)
-	else:
+		return
+	if direction and !is_on_floor():
+		velocity.x = move_toward(velocity.x, direction * moving_speed, air_speed * delta)
+		return
+	if direction and is_on_floor():
 		velocity.x = direction * moving_speed
+		return
 	
 func _apply_gravity(delta) -> void:
 	velocity += get_gravity() * delta
@@ -175,10 +185,11 @@ func _state_run() -> void:
 
 func _state_jump(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(airborn_speed, delta)
-	double_jump_charge += delta
-	if double_jump_charge >= double_jump_charge_limit and jump_pressed:
+	_move_to(speed, delta)
+	print(double_jump_charge)
+	if double_jump_charge and jump_pressed:
 		velocity.y = double_jump_velocity
+		double_jump_charge = false
 		return
 	if velocity.y > 0:
 		_change_state(States.fall)
@@ -193,7 +204,7 @@ func _state_jump(delta: float) -> void:
 
 func _state_fall(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(airborn_speed, delta)
+	_move_to(speed, delta)
 	landing_charge += delta
 	if landing_charge >= landing_charge_limit:
 		_change_state(States.landing)
@@ -210,7 +221,7 @@ func _state_fall(delta: float) -> void:
 
 func _state_landing(delta: float) -> void:
 	_apply_gravity(delta)
-	_move_to(airborn_speed, delta)
+	_move_to(speed, delta)
 	if is_on_floor():
 		$LandSfx.play()
 		_change_state(States.idle)
@@ -240,7 +251,7 @@ func _change_state(new_state: States) -> void:
 		return
 	match new_state:
 		States.jump:
-			double_jump_charge = 0
+			$OnAirTimer.start()
 			$JumpSfx.play()
 			velocity.y = jump_velocity
 		States.walk:
@@ -283,7 +294,7 @@ func _physics_process(delta: float) -> void:
 	_run_state(delta)
 	_animation()
 	move_and_slide()
-
+	
 func _on_hiding_zone_body_entered(_body: Node2D) -> void:
 	can_hide = true
 
@@ -308,3 +319,8 @@ func _on_run_step_timer_timeout() -> void:
 
 func _on_finish_line_body_entered(_body: Node2D) -> void:
 	GameManager._load_next_level()
+
+
+func _on_on_air_timer_timeout() -> void:
+	double_jump_charge = true
+	pass # Replace with function body.
