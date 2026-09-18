@@ -49,11 +49,11 @@ func _player_input() -> void:
 	
 func _animation():
 	$GPUParticlesRUN.emitting = false
-	if reset_pressed:
-		$AnimatedSprite2D.play('idle')
-		return
 	if can_die:
 		$AnimatedSprite2D.play('reset')
+		return
+	if reset_pressed:
+		$AnimatedSprite2D.play('idle')
 		return
 	if hide_pressed:
 		$AnimatedSprite2D.play('hidden')
@@ -243,6 +243,8 @@ func _state_death(delta: float) -> void:
 		_change_state(States.idle)
 		
 func _state_reset() -> void:
+	velocity.x = move_toward(velocity.x, 0, speed)
+	velocity.y = move_toward(velocity.y, 0, speed)
 	global_position = respawn_position
 	_change_state(States.idle)
 
@@ -323,4 +325,3 @@ func _on_finish_line_body_entered(_body: Node2D) -> void:
 
 func _on_on_air_timer_timeout() -> void:
 	double_jump_charge = true
-	pass # Replace with function body.

@@ -2,6 +2,7 @@ extends Node
 
 var current_level: int = 0
 var levels: Array[String] = [
+	"res://Scenes/Levels/level4.tscn",
 	"res://Scenes/Levels/level.tscn",
 	"res://Scenes/Levels/level2.tscn",
 	"res://Scenes/Levels/level3.tscn",

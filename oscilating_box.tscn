@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://xuf76g6v72sb"]
+
+[ext_resource type="Script" uid="uid://oxha1qbo1eju" path="res://oscilating_box.gd" id="1_s8f3o"]
+[ext_resource type="Texture2D" uid="uid://cfrq3yucltlx4" path="res://Assets/Free/Items/Boxes/Box2/Idle.png" id="2_qapa7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av385"]
+size = Vector2(36, 5)
+
+[node name="Oscilating_box" type="StaticBody2D" unique_id=1601118482]
+collision_layer = 64
+script = ExtResource("1_s8f3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619619180]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qapa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859124182]
+shape = SubResource("RectangleShape2D_imiid")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=1077309115]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1318206815]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_av385")
+
+[node name="CrumbleTimerOsc" type="Timer" parent="." unique_id=599104072]
+wait_time = 0.3
+
+[node name="RegenerateTimer" type="Timer" parent="." unique_id=112503654]
+wait_time = 2.0
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="CrumbleTimerOsc" to="." method="_on_crumble_timer_osc_timeout"]
+[connection signal="timeout" from="RegenerateTimer" to="." method="_on_regenerate_timer_timeout"]
