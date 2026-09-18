@@ -471,6 +471,9 @@ sources/0 = SubResource("TileSetAtlasSource_lkqqh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ow1h"]
 size = Vector2(3920, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]
+size = Vector2(109.5, 740)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymirh"]
 size = Vector2(33.75, 29)
 
@@ -576,7 +579,7 @@ tile_set = SubResource("TileSet_av385")
 [node name="Entities" type="Node2D" parent="." unique_id=1885716387]
 
 [node name="Player" parent="Entities" unique_id=1745110940 instance=ExtResource("3_6xlxm")]
-position = Vector2(39, 538)
+position = Vector2(41, 544)
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=293859122]
 position = Vector2(508, 578)
@@ -639,6 +642,14 @@ polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZone" unique_id=466666496]
 position = Vector2(1090, 119)
 shape = SubResource("RectangleShape2D_0ow1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=1283925959]
+position = Vector2(-639.75, -207)
+shape = SubResource("RectangleShape2D_imiid")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone" unique_id=613599637]
+position = Vector2(2984, -207)
+shape = SubResource("RectangleShape2D_imiid")
 
 [node name="DeathZone2" type="Area2D" parent="." unique_id=1156303848]
 position = Vector2(1339, 578)

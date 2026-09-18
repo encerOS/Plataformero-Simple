@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4ijxn0waqpyp" path="res://Scenes/Entities/player.gd" id="1_blnjl"]
 [ext_resource type="Texture2D" uid="uid://20gh0dw1rkpb" path="res://Assets/Free/Main Characters/Mask Dude/Hit (32x32).png" id="2_ofjh0"]
+[ext_resource type="PackedScene" uid="uid://defwyth6bkfok" path="res://camera_2d.tscn" id="2_pm2yg"]
 [ext_resource type="Texture2D" uid="uid://bwl52c4whmbhx" path="res://Assets/Free/Main Characters/Mask Dude/Fall (32x32).png" id="3_2hnfo"]
 [ext_resource type="Texture2D" uid="uid://bcq8o0rlm4kia" path="res://Assets/Free/Main Characters/Mask Dude/Idle (32x32).png" id="4_y18yp"]
 [ext_resource type="Texture2D" uid="uid://c5sru1p24lne" path="res://Assets/Free/Main Characters/Mask Dude/Jump (32x32).png" id="5_85s6f"]
@@ -469,8 +470,8 @@ script = ExtResource("1_blnjl")
 position = Vector2(0.5, 2.5)
 shape = SubResource("CapsuleShape2D_85s6f")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=757327309]
-zoom = Vector2(3, 3)
+[node name="Camera2D" parent="." unique_id=1411524802 instance=ExtResource("2_pm2yg")]
+position_smoothing_enabled = true
 
 [node name="StateLabel" type="Label" parent="." unique_id=1165519712]
 offset_left = -20.0

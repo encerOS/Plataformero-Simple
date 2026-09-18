@@ -19,6 +19,7 @@ reset
 @export var landing_charge_limit: float = .6
 @export var respawn_rate: float = 2
 @export var respawn_position: Vector2 = global_position
+@onready var camera: Camera2D = $Camera2D
 
 var state = States.idle
 var run_charge: float = 0
@@ -61,6 +62,7 @@ func _animation():
 	if direction == 0.0 and is_on_floor():
 		if landing_charge > landing_charge_limit:
 			$GPUParticlesLAND.restart()
+			$Camera2D.screen_shake(8, 0.5)
 			$AnimatedSprite2D.play('land')
 			landing_charge = 0
 			return

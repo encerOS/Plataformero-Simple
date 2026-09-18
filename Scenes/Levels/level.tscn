@@ -474,6 +474,9 @@ size = Vector2(39, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ow1h"]
 size = Vector2(3920, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]
+size = Vector2(110, 694.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymirh"]
 size = Vector2(33.75, 29)
 
@@ -706,6 +709,14 @@ polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZone" unique_id=466666496]
 position = Vector2(1090, 119)
 shape = SubResource("RectangleShape2D_0ow1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=982165870]
+position = Vector2(-596, -241)
+shape = SubResource("RectangleShape2D_imiid")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone" unique_id=1953669593]
+position = Vector2(2934, -241)
+shape = SubResource("RectangleShape2D_imiid")
 
 [node name="DeathZone2" type="Area2D" parent="." unique_id=1156303848]
 position = Vector2(1339, 578)
