@@ -1,5 +1,6 @@
 extends Camera2D
 
+@export var follow_speed: float = 5
 var shake_intensity: float = 0.0
 var active_shake_time: float = 0.0
 
@@ -7,10 +8,16 @@ var shake_decay: float = 5.0
 
 var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
+var target: Node2D
 
 var noise = FastNoiseLite.new()
 
+func _ready() -> void:
+	target = get_tree().get_first_node_in_group("Player")
+
 func _physics_process(delta: float) -> void:
+	if target:
+		global_position = global_position.lerp(target.global_position, follow_speed * delta)
 	if active_shake_time > 0:
 		shake_time += delta * shake_time_speed
 		active_shake_time -= delta

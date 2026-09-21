@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b3om0033vl1yv"]
 
-[ext_resource type="Script" uid="uid://6h7q6dfbecuj" path="res://scene_transition.gd" id="1_jywac"]
+[ext_resource type="Script" uid="uid://6h7q6dfbecuj" path="res://Scenes/Levels/scene_transition.gd" id="1_b1sv3"]
 
 [node name="Level_transition" type="CanvasLayer" unique_id=2104427621]
 process_mode = 3
-script = ExtResource("1_jywac")
+script = ExtResource("1_b1sv3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=678775999]
 modulate = Color(1, 1, 1, 0)

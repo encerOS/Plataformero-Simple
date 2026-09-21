@@ -1,15 +1,16 @@
-[gd_scene format=4 uid="uid://ck6ggdawdya8p"]
+[gd_scene format=4 uid="uid://4e0od6prsl0j"]
 
-[ext_resource type="Texture2D" uid="uid://c72eihsp8fkvr" path="res://Assets/Free/Background/Gray.png" id="1_li750"]
-[ext_resource type="Texture2D" uid="uid://bw2t0iubg1xsw" path="res://Assets/Free/Terrain/Terrain (16x16).png" id="2_lpiby"]
-[ext_resource type="PackedScene" uid="uid://dwsch6aggcti1" path="res://Scenes/Entities/player.tscn" id="3_6xlxm"]
-[ext_resource type="Texture2D" uid="uid://uunnjwieks4i" path="res://Assets/Free/Items/Checkpoints/Start/Start (Idle).png" id="5_kee65"]
-[ext_resource type="Texture2D" uid="uid://f6gmxq0vgoqn" path="res://Assets/Free/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="6_lmqgw"]
-[ext_resource type="Texture2D" uid="uid://ba3e2ct5mc6wj" path="res://Assets/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="7_c346c"]
-[ext_resource type="PackedScene" uid="uid://xuf76g6v72sb" path="res://Scenes/Entities/oscilating_box.tscn" id="8_6xlxm"]
+[ext_resource type="Texture2D" uid="uid://c72eihsp8fkvr" path="res://Assets/Free/Background/Gray.png" id="1_lkkcx"]
+[ext_resource type="Texture2D" uid="uid://bw2t0iubg1xsw" path="res://Assets/Free/Terrain/Terrain (16x16).png" id="2_08vl7"]
+[ext_resource type="PackedScene" uid="uid://dwsch6aggcti1" path="res://Scenes/Entities/player.tscn" id="3_pt0sv"]
+[ext_resource type="Texture2D" uid="uid://uunnjwieks4i" path="res://Assets/Free/Items/Checkpoints/Start/Start (Idle).png" id="5_f11tu"]
+[ext_resource type="Texture2D" uid="uid://f6gmxq0vgoqn" path="res://Assets/Free/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="6_ykvih"]
+[ext_resource type="Texture2D" uid="uid://ba3e2ct5mc6wj" path="res://Assets/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="7_rp22a"]
+[ext_resource type="PackedScene" uid="uid://c1dupwp6xeyux" path="res://Scenes/Entities/moving_platform.tscn" id="8_08vl7"]
+[ext_resource type="PackedScene" uid="uid://xuf76g6v72sb" path="res://Scenes/Entities/oscilating_box.tscn" id="9_pt0sv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq1so"]
-texture = ExtResource("2_lpiby")
+texture = ExtResource("2_08vl7")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -213,7 +214,7 @@ terrain_set_0/terrain_0/color = Color(0.058367938, 0.45275593, 0.3539408, 1)
 sources/0 = SubResource("TileSetAtlasSource_tq1so")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkqqh"]
-texture = ExtResource("2_lpiby")
+texture = ExtResource("2_08vl7")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -472,7 +473,7 @@ sources/0 = SubResource("TileSetAtlasSource_lkqqh")
 size = Vector2(3920, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]
-size = Vector2(109.5, 740)
+size = Vector2(110, 694.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymirh"]
 size = Vector2(33.75, 29)
@@ -482,43 +483,43 @@ size = Vector2(33.75, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2kcx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rv5g2"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhx7y"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5435"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbixu"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxcld"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3yal"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0lyn"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5s4o"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kogc4"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_on2c6"]
-atlas = ExtResource("7_c346c")
+atlas = ExtResource("7_rp22a")
 region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_imiid"]
@@ -567,75 +568,114 @@ offset_top = 3.0000076
 offset_right = 186.6
 offset_bottom = 127.7
 scale = Vector2(10, 10)
-texture = ExtResource("1_li750")
+texture = ExtResource("1_lkkcx")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=335034988]
-tile_map_data = PackedByteArray("AAAAACUAAAARAAQAAAAAACYAAAARAAUAAAABACUAAAASAAQAAAABACYAAAASAAUAAAACACUAAAASAAQAAAACACYAAAASAAUAAAADACUAAAASAAQAAAADACYAAAASAAUAAAAEACUAAAASAAQAAAAEACYAAAASAAUAAAAFACUAAAASAAQAAAAFACYAAAASAAUAAAAGACUAAAASAAQAAAAGACYAAAASAAUAAAAHACUAAAASAAQAAAAHACYAAAASAAUAAAAIACUAAAASAAQAAAAIACYAAAASAAUAAAAJACUAAAASAAQAAAAJACYAAAASAAUAAAAKACUAAAASAAQAAAAKACYAAAASAAUAAAALACUAAAASAAQAAAALACYAAAASAAUAAAAMACUAAAATAAQAAAAMACYAAAATAAUAAAA4ACUAAAARAAQAAAA4ACYAAAARAAUAAAA5ACUAAAASAAQAAAA5ACYAAAASAAUAAAA6ACUAAAASAAQAAAA6ACYAAAASAAUAAAA7ACUAAAASAAQAAAA7ACYAAAASAAUAAAA8ACUAAAASAAQAAAA8ACYAAAASAAUAAAA9ACUAAAASAAQAAAA9ACYAAAASAAUAAAA+ACUAAAASAAQAAAA+ACYAAAASAAUAAAA/ACUAAAATAAQAAAA/ACYAAAATAAUAAAAfACUAAAARAAQAAAAfACYAAAARAAUAAAAgACUAAAASAAQAAAAgACYAAAASAAUAAAAhACUAAAASAAQAAAAhACYAAAASAAUAAAAiACUAAAASAAQAAAAiACYAAAASAAUAAAAjACUAAAASAAQAAAAjACYAAAASAAUAAAAkACUAAAASAAQAAAAkACYAAAASAAUAAAAlACUAAAATAAQAAAAlACYAAAATAAUAAABTACUAAAARAAQAAABTACYAAAARAAUAAABUACUAAAASAAQAAABUACYAAAASAAUAAABVACUAAAASAAQAAABVACYAAAASAAUAAABWACUAAAATAAQAAABWACYAAAATAAUAAADAACUAAAASAAQAAADAACYAAAASAAUAAADBACUAAAASAAQAAADBACYAAAASAAUAAADCACUAAAASAAQAAADCACYAAAASAAUAAADDACUAAAASAAQAAADDACYAAAASAAUAAADEACUAAAASAAQAAADEACYAAAASAAUAAADFACUAAAASAAQAAADFACYAAAASAAUAAADGACUAAAASAAQAAADGACYAAAASAAUAAADHACUAAAASAAQAAADHACYAAAASAAUAAADIACUAAAASAAQAAADIACYAAAASAAUAAADJACUAAAATAAQAAADJACYAAAATAAUAAABrACUAAAARAAQAAABrACYAAAARAAUAAABsACUAAAASAAQAAABsACYAAAASAAUAAABtACUAAAASAAQAAABtACYAAAASAAUAAABuACUAAAASAAQAAABuACYAAAASAAUAAABvACUAAAASAAQAAABvACYAAAASAAUAAABwACUAAAASAAQAAABwACYAAAASAAUAAABxACUAAAATAAQAAABxACYAAAATAAUAAACTACUAAAARAAQAAACTACYAAAARAAUAAACUACUAAAASAAQAAACUACYAAAASAAUAAACVACUAAAASAAQAAACVACYAAAASAAUAAACWACUAAAATAAQAAACWACYAAAATAAUAAACrACUAAAASAAQAAACrACYAAAASAAUAAACsACUAAAASAAQAAACsACYAAAASAAUAAACtACUAAAATAAQAAACtACYAAAATAAUAAAC/ACUAAAARAAQAAAC/ACYAAAARAAUAAACpACUAAAASAAQAAACpACYAAAASAAUAAACqACUAAAASAAQAAACqACYAAAASAAUAAAA=")
+tile_map_data = PackedByteArray("AAAMACMAAAATAAQAAAAMACQAAAATAAUAAAALACMAAAASAAQAAAALACQAAAASAAUAAAAKACMAAAASAAQAAAAKACQAAAASAAUAAAAJACMAAAASAAQAAAAJACQAAAASAAUAAAAIACMAAAASAAQAAAAIACQAAAASAAUAAAAHACMAAAASAAQAAAAHACQAAAASAAUAAAAGACMAAAASAAQAAAAGACQAAAASAAUAAAAFACMAAAASAAQAAAAFACQAAAASAAUAAAAEACMAAAASAAQAAAAEACQAAAASAAUAAAADACMAAAASAAQAAAADACQAAAASAAUAAAACACMAAAASAAQAAAACACQAAAASAAUAAAABACMAAAASAAQAAAABACQAAAASAAUAAAAAACMAAAARAAQAAAAAACQAAAARAAUAAAByAB4AAAARAAQAAAByAB8AAAARAAUAAABzAB4AAAATAAQAAABzAB8AAAATAAUAAABeAB4AAAATAAQAAABeAB8AAAATAAUAAABdAB4AAAARAAQAAABdAB8AAAARAAUAAADBACMAAAARAAQAAADBACQAAAARAAUAAADCACMAAAASAAQAAADCACQAAAASAAUAAADDACMAAAASAAQAAADDACQAAAASAAUAAADEACMAAAASAAQAAADEACQAAAASAAUAAADFACMAAAASAAQAAADFACQAAAASAAUAAADGACMAAAASAAQAAADGACQAAAASAAUAAADHACMAAAASAAQAAADHACQAAAASAAUAAADIACMAAAASAAQAAADIACQAAAASAAUAAADJACMAAAASAAQAAADJACQAAAASAAUAAADKACMAAAATAAQAAADKACQAAAATAAUAAAA=")
 tile_set = SubResource("TileSet_buy7r")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1571692669]
+tile_map_data = PackedByteArray("AAARACMAAAAGAAAAAAARACQAAAAGAAEAAAASACMAAAAIAAAAAAASACQAAAAIAAEAAAAXACMAAAAGAAAAAAAXACQAAAAGAAEAAAAYACMAAAAIAAAAAAAYACQAAAAIAAEAAAAdACMAAAAGAAAAAAAdACQAAAAGAAEAAAAjACMAAAAGAAAAAAAjACQAAAAGAAEAAAAkACMAAAAHAAAAAAAkACQAAAAHAAEAAAAlACMAAAAHAAAAAAAlACQAAAAHAAEAAAAmACMAAAAHAAAAAAAmACQAAAAHAAEAAAAnACMAAAAIAAAAAAAnACQAAAAIAAEAAAAeACMAAAAIAAAAAAAeACQAAAAIAAEAAAAuACMAAAAGAAAAAAAuACQAAAAGAAEAAAAvACMAAAAHAAAAAAAvACQAAAAHAAEAAAAwACMAAAAHAAAAAAAwACQAAAAHAAEAAAAxACMAAAAHAAAAAAAxACQAAAAHAAEAAAAyACMAAAAHAAAAAAAyACQAAAAHAAEAAAAzACMAAAAIAAAAAAAzACQAAAAIAAEAAAA9ACMAAAAGAAAAAAA9ACQAAAAGAAEAAAA+ACMAAAAIAAAAAAA+ACQAAAAIAAEAAABEACMAAAAGAAAAAABEACQAAAAGAAEAAABFACMAAAAIAAAAAABFACQAAAAIAAEAAABKACMAAAAGAAAAAABKACQAAAAGAAEAAABLACMAAAAIAAAAAABLACQAAAAIAAEAAABUACMAAAAGAAAAAABUACQAAAAGAAEAAABVACMAAAAHAAAAAABVACQAAAAHAAEAAABWACMAAAAHAAAAAABWACQAAAAHAAEAAABXACMAAAAHAAAAAABXACQAAAAHAAEAAABYACMAAAAHAAAAAABYACQAAAAHAAEAAABZACMAAAAIAAAAAABZACQAAAAIAAEAAABkACMAAAAHAAAAAABkACQAAAAHAAEAAABsACMAAAAHAAAAAABsACQAAAAHAAEAAABtACMAAAAIAAAAAABtACQAAAAIAAEAAABjACMAAAAGAAAAAABjACQAAAAGAAEAAABlACMAAAAIAAAAAABrACMAAAAGAAAAAABlACQAAAAIAAEAAABrACQAAAAGAAEAAABkACIAAAAGAAAAAABlACIAAAAHAAAAAABmACIAAAAHAAAAAABmACMAAAAHAAEAAABnACIAAAAHAAAAAABnACMAAAAHAAEAAABoACIAAAAHAAAAAABoACMAAAAHAAEAAABpACIAAAAHAAAAAABpACMAAAAHAAEAAABqACIAAAAHAAAAAABqACMAAAAIAAEAAABrACIAAAAHAAAAAABsACIAAAAIAAAAAACYACMAAAAHAAAAAACYACQAAAAHAAEAAACXACMAAAAGAAAAAACXACQAAAAGAAEAAACZACMAAAAHAAAAAACZACQAAAAHAAEAAACaACMAAAAHAAAAAACaACQAAAAHAAEAAACbACMAAAAIAAAAAACbACQAAAAIAAEAAACmACMAAAAGAAAAAACmACQAAAAGAAEAAACgACMAAAAHAAAAAACgACQAAAAHAAEAAAChACMAAAAIAAAAAAChACQAAAAIAAEAAACnACMAAAAIAAAAAACnACQAAAAIAAEAAACtACMAAAAIAAAAAACtACQAAAAIAAEAAACsACMAAAAGAAAAAACsACQAAAAGAAEAAAB4ACMAAAAGAAAAAAB4ACQAAAAGAAEAAAB5ACMAAAAIAAAAAAB5ACQAAAAIAAEAAAA=")
 tile_set = SubResource("TileSet_av385")
 
 [node name="Entities" type="Node2D" parent="." unique_id=1885716387]
 
-[node name="Player" parent="Entities" unique_id=1745110940 instance=ExtResource("3_6xlxm")]
-position = Vector2(41, 544)
+[node name="Player" parent="Entities" unique_id=1745110940 instance=ExtResource("3_pt0sv")]
+position = Vector2(42, 538)
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=293859122]
 position = Vector2(508, 578)
 collision_layer = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=2106521950]
+position = Vector2(-220, -28)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="Polygon2D" type="Polygon2D" parent="DeathZone" unique_id=1067813489]
+position = Vector2(-220, -28)
+color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DeathZone" unique_id=1460094814]
-position = Vector2(21, 4)
+position = Vector2(-124, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D2" type="Polygon2D" parent="DeathZone" unique_id=332437369]
-position = Vector2(21, 4)
+position = Vector2(-124, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="DeathZone" unique_id=2014822194]
-position = Vector2(42, 4)
+position = Vector2(-28, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D3" type="Polygon2D" parent="DeathZone" unique_id=40586599]
-position = Vector2(42, 4)
+position = Vector2(-28, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="DeathZone" unique_id=411702979]
-position = Vector2(63, 4)
+position = Vector2(69, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D4" type="Polygon2D" parent="DeathZone" unique_id=1942119926]
-position = Vector2(63, 4)
+position = Vector2(69, -28)
+color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="DeathZone" unique_id=1758146160]
+position = Vector2(115, -28)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="Polygon2D5" type="Polygon2D" parent="DeathZone" unique_id=832231748]
+position = Vector2(115, -28)
+color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="DeathZone" unique_id=1133055139]
+position = Vector2(484, -28)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="Polygon2D8" type="Polygon2D" parent="DeathZone" unique_id=1991644954]
+position = Vector2(484, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="DeathZone" unique_id=1821551462]
-position = Vector2(431, 4)
+position = Vector2(596, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D9" type="Polygon2D" parent="DeathZone" unique_id=40716391]
-position = Vector2(431, 4)
+position = Vector2(596, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="DeathZone" unique_id=1383846677]
-position = Vector2(452, 4)
+position = Vector2(692, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D10" type="Polygon2D" parent="DeathZone" unique_id=435104688]
-position = Vector2(452, 4)
+position = Vector2(692, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="DeathZone" unique_id=981096669]
-position = Vector2(473, 4)
+position = Vector2(1332, -56)
+rotation = 3.1415927
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D11" type="Polygon2D" parent="DeathZone" unique_id=845806130]
-position = Vector2(473, 4)
+position = Vector2(1332, -56)
+rotation = 3.1415927
+color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="DeathZone" unique_id=2038901429]
+position = Vector2(1159, -44)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="Polygon2D12" type="Polygon2D" parent="DeathZone" unique_id=496897111]
+position = Vector2(1159, -44)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
@@ -643,97 +683,72 @@ polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 position = Vector2(1090, 119)
 shape = SubResource("RectangleShape2D_0ow1h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=1283925959]
-position = Vector2(-639.75, -207)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=982165870]
+position = Vector2(-596, -241)
 shape = SubResource("RectangleShape2D_imiid")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone" unique_id=613599637]
-position = Vector2(2984, -207)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone" unique_id=1953669593]
+position = Vector2(2934, -241)
 shape = SubResource("RectangleShape2D_imiid")
 
 [node name="DeathZone2" type="Area2D" parent="." unique_id=1156303848]
 position = Vector2(1339, 578)
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone2" unique_id=432651034]
-position = Vector2(0, 4)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="Polygon2D" type="Polygon2D" parent="DeathZone2" unique_id=2055099968]
-position = Vector2(0, 4)
-color = Color(0.80060124, 0.3195085, 0.17375082, 1)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DeathZone2" unique_id=1892265721]
-position = Vector2(21, 4)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="Polygon2D2" type="Polygon2D" parent="DeathZone2" unique_id=132199127]
-position = Vector2(21, 4)
-color = Color(0.80060124, 0.3195085, 0.17375082, 1)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="DeathZone2" unique_id=2121074865]
-position = Vector2(42, 4)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="Polygon2D3" type="Polygon2D" parent="DeathZone2" unique_id=897751793]
-position = Vector2(42, 4)
-color = Color(0.80060124, 0.3195085, 0.17375082, 1)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="DeathZone2" unique_id=1165268776]
-position = Vector2(1859, 4)
+position = Vector2(1334, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D13" type="Polygon2D" parent="DeathZone2" unique_id=1055701280]
-position = Vector2(1859, 4)
+position = Vector2(1334, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="DeathZone2" unique_id=800829219]
-position = Vector2(1880, 4)
+position = Vector2(1237, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D14" type="Polygon2D" parent="DeathZone2" unique_id=1300783676]
-position = Vector2(1880, 4)
+position = Vector2(1237, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="DeathZone2" unique_id=39440953]
-position = Vector2(1404, 4)
+position = Vector2(165, -56)
+rotation = 3.1415927
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D15" type="Polygon2D" parent="DeathZone2" unique_id=1618690891]
-position = Vector2(1404, 4)
+position = Vector2(165, -56)
+rotation = 3.1415927
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="DeathZone2" unique_id=1027464110]
-position = Vector2(1758, 4)
+position = Vector2(1758, -30)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D4" type="Polygon2D" parent="DeathZone2" unique_id=653228881]
-position = Vector2(1758, 4)
+position = Vector2(1758, -30)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="DeathZone2" unique_id=302627333]
-position = Vector2(1780, 4)
+position = Vector2(1780, -30)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="Polygon2D5" type="Polygon2D" parent="DeathZone2" unique_id=1434118607]
-position = Vector2(1780, 4)
+position = Vector2(1780, -30)
+color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="Polygon2D6" type="Polygon2D" parent="DeathZone2" unique_id=932559619]
+position = Vector2(1429, -28)
 color = Color(0.80060124, 0.3195085, 0.17375082, 1)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="DeathZone2" unique_id=206112846]
-position = Vector2(383, 4)
-polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
-
-[node name="Polygon2D6" type="Polygon2D" parent="DeathZone2" unique_id=932559619]
-position = Vector2(383, 4)
-color = Color(0.80060124, 0.3195085, 0.17375082, 1)
+position = Vector2(1429, -28)
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="CheckPointZone" type="Area2D" parent="." unique_id=1408766574]
@@ -741,20 +756,44 @@ position = Vector2(3141, 579)
 collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="CheckPointZone" unique_id=191239015]
-position = Vector2(-3110, -19)
-texture = ExtResource("5_kee65")
+position = Vector2(-3110, -51)
+texture = ExtResource("5_f11tu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointZone" unique_id=917490191]
-position = Vector2(-3098.875, -1.5)
+position = Vector2(-3098.875, -33.5)
 shape = SubResource("RectangleShape2D_ymirh")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CheckPointZone" unique_id=776407313]
-position = Vector2(-1375, 3)
+position = Vector2(-2359, -29)
 shape = SubResource("RectangleShape2D_t3rsj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CheckPointZone" unique_id=1340762935]
-position = Vector2(-1372, -19)
-texture = ExtResource("6_lmqgw")
+position = Vector2(-2356, -51)
+texture = ExtResource("6_ykvih")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CheckPointZone" unique_id=1986459156]
+position = Vector2(-1752, -29)
+shape = SubResource("RectangleShape2D_t3rsj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CheckPointZone" unique_id=1778102644]
+position = Vector2(-1749, -51)
+texture = ExtResource("6_ykvih")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CheckPointZone" unique_id=2105096861]
+position = Vector2(-1204, -29)
+shape = SubResource("RectangleShape2D_t3rsj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CheckPointZone" unique_id=2106105576]
+position = Vector2(-1201, -51)
+texture = ExtResource("6_ykvih")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CheckPointZone" unique_id=1900419466]
+position = Vector2(-687, -29)
+shape = SubResource("RectangleShape2D_t3rsj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CheckPointZone" unique_id=1884171279]
+position = Vector2(-684, -51)
+texture = ExtResource("6_ykvih")
 
 [node name="Label" type="Label" parent="." unique_id=2060696820]
 offset_left = 3330.0
@@ -764,78 +803,47 @@ offset_bottom = 565.0
 text = "FIN"
 
 [node name="FinishLine" type="Area2D" parent="." unique_id=1469176594]
-position = Vector2(3211, 581)
+position = Vector2(3211, 547)
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=1860930765]
-position = Vector2(-46, 0)
 shape = SubResource("RectangleShape2D_g2kcx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FinishLine" unique_id=1624860693]
-position = Vector2(-46, -20)
+position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_imiid")
 animation = &"Waving"
 autoplay = "Waving"
 frame_progress = 0.93780017
 
-[node name="Node" type="Node" parent="." unique_id=1192527700]
+[node name="Platforms" type="Node" parent="." unique_id=1756764247]
 
-[node name="Oscilating_box" parent="Node" unique_id=1601118482 instance=ExtResource("8_6xlxm")]
-position = Vector2(743, 609)
+[node name="Moving Platform" parent="Platforms" unique_id=1196875441 instance=ExtResource("8_08vl7")]
+position = Vector2(156, 592)
 
-[node name="Oscilating_box2" parent="Node" unique_id=1950825571 instance=ExtResource("8_6xlxm")]
-position = Vector2(643, 608)
+[node name="Moving Platform2" parent="Platforms" unique_id=865224812 instance=ExtResource("8_08vl7")]
+position = Vector2(781, 592)
 
-[node name="Oscilating_box4" parent="Node" unique_id=173038875 instance=ExtResource("8_6xlxm")]
-position = Vector2(307, 604)
+[node name="Moving Platform3" parent="Platforms" unique_id=1541664562 instance=ExtResource("8_08vl7")]
+position = Vector2(1388, 592)
 
-[node name="Oscilating_box3" parent="Node" unique_id=903431156 instance=ExtResource("8_6xlxm")]
-position = Vector2(421, 605)
+[node name="Moving Platform4" parent="Platforms" unique_id=1031127518 instance=ExtResource("8_08vl7")]
+position = Vector2(2415, 592)
 
-[node name="Oscilating_box5" parent="Node" unique_id=682298062 instance=ExtResource("8_6xlxm")]
-position = Vector2(1640, 604)
+[node name="Oscilating_box" parent="Platforms" unique_id=1601118482 instance=ExtResource("9_pt0sv")]
+position = Vector2(2867, 580)
 
-[node name="Oscilating_box6" parent="Node" unique_id=784624893 instance=ExtResource("8_6xlxm")]
-position = Vector2(1523, 605)
+[node name="Oscilating_box2" parent="Platforms" unique_id=1438275306 instance=ExtResource("9_pt0sv")]
+position = Vector2(2989, 580)
 
-[node name="Oscilating_box7" parent="Node" unique_id=450834311 instance=ExtResource("8_6xlxm")]
-position = Vector2(1432, 605)
+[node name="Oscilating_box3" parent="Platforms" unique_id=889810027 instance=ExtResource("9_pt0sv")]
+position = Vector2(2061, 580)
 
-[node name="Oscilating_box8" parent="Node" unique_id=814800903 instance=ExtResource("8_6xlxm")]
-position = Vector2(1087, 605)
+[node name="Oscilating_box4" parent="Platforms" unique_id=1677888234 instance=ExtResource("9_pt0sv")]
+position = Vector2(2194, 580)
 
-[node name="Oscilating_box9" parent="Node" unique_id=419013030 instance=ExtResource("8_6xlxm")]
-position = Vector2(1188, 605)
-
-[node name="Oscilating_box10" parent="Node" unique_id=438622514 instance=ExtResource("8_6xlxm")]
-position = Vector2(849, 608)
-
-[node name="Oscilating_box11" parent="Node" unique_id=118046564 instance=ExtResource("8_6xlxm")]
-position = Vector2(1284, 603)
-
-[node name="Oscilating_box12" parent="Node" unique_id=884335383 instance=ExtResource("8_6xlxm")]
-position = Vector2(1915, 604)
-
-[node name="Oscilating_box13" parent="Node" unique_id=1572826619 instance=ExtResource("8_6xlxm")]
-position = Vector2(2627, 609)
-
-[node name="Oscilating_box14" parent="Node" unique_id=302792129 instance=ExtResource("8_6xlxm")]
-position = Vector2(2498, 608)
-
-[node name="Oscilating_box15" parent="Node" unique_id=1709084008 instance=ExtResource("8_6xlxm")]
-position = Vector2(2251, 605)
-
-[node name="Oscilating_box16" parent="Node" unique_id=1059508745 instance=ExtResource("8_6xlxm")]
-position = Vector2(2137, 606)
-
-[node name="Oscilating_box17" parent="Node" unique_id=500329798 instance=ExtResource("8_6xlxm")]
-position = Vector2(2025, 605)
-
-[node name="Oscilating_box18" parent="Node" unique_id=433280722 instance=ExtResource("8_6xlxm")]
-position = Vector2(2965, 611)
-
-[node name="Oscilating_box19" parent="Node" unique_id=452897789 instance=ExtResource("8_6xlxm")]
-position = Vector2(2859, 610)
+[node name="Oscilating_box5" parent="Platforms" unique_id=2037815838 instance=ExtResource("9_pt0sv")]
+position = Vector2(2318, 580)
 
 [connection signal="body_entered" from="DeathZone" to="Entities/Player" method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="DeathZone2" to="Entities/Player" method="_on_death_zone_body_entered"]

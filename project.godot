@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PlataformeroSimple"
-run/main_scene="uid://cyw2n5053577w"
+run/main_scene="uid://dr83nwy85aj2g"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

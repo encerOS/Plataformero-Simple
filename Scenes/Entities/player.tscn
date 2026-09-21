@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4ijxn0waqpyp" path="res://Scenes/Entities/player.gd" id="1_blnjl"]
 [ext_resource type="Texture2D" uid="uid://20gh0dw1rkpb" path="res://Assets/Free/Main Characters/Mask Dude/Hit (32x32).png" id="2_ofjh0"]
-[ext_resource type="PackedScene" uid="uid://defwyth6bkfok" path="res://camera_2d.tscn" id="2_pm2yg"]
+[ext_resource type="PackedScene" uid="uid://defwyth6bkfok" path="res://Scenes/Entities/camera_2d.tscn" id="2_pm2yg"]
 [ext_resource type="Texture2D" uid="uid://bwl52c4whmbhx" path="res://Assets/Free/Main Characters/Mask Dude/Fall (32x32).png" id="3_2hnfo"]
 [ext_resource type="Texture2D" uid="uid://bcq8o0rlm4kia" path="res://Assets/Free/Main Characters/Mask Dude/Idle (32x32).png" id="4_y18yp"]
 [ext_resource type="Texture2D" uid="uid://c5sru1p24lne" path="res://Assets/Free/Main Characters/Mask Dude/Jump (32x32).png" id="5_85s6f"]
@@ -460,6 +460,8 @@ direction = Vector3(0, -90, 0)
 spread = 120.0
 initial_velocity_min = 38.46
 initial_velocity_max = 151.09999
+scale_min = 0.099999994
+scale_max = 0.39999998
 color_ramp = SubResource("GradientTexture1D_buy7r")
 
 [node name="Player" type="CharacterBody2D" unique_id=1745110940 groups=["Player"]]
@@ -471,7 +473,6 @@ position = Vector2(0.5, 2.5)
 shape = SubResource("CapsuleShape2D_85s6f")
 
 [node name="Camera2D" parent="." unique_id=1411524802 instance=ExtResource("2_pm2yg")]
-position_smoothing_enabled = true
 
 [node name="StateLabel" type="Label" parent="." unique_id=1165519712]
 offset_left = -20.0
@@ -510,6 +511,7 @@ process_material = SubResource("ParticleProcessMaterial_buy7r")
 [node name="GPUParticlesCheckPoint" type="GPUParticles2D" parent="." unique_id=431869745]
 emitting = false
 amount = 50
+texture = ExtResource("8_2hnfo")
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_77xay")
 
@@ -537,9 +539,13 @@ stream = ExtResource("14_at1v1")
 
 [node name="OnAirTimer" type="Timer" parent="." unique_id=380379965]
 wait_time = 0.2
+one_shot = true
+
+[node name="LandTimer" type="Timer" parent="." unique_id=1468868281]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RunStepTimer" to="." method="_on_run_step_timer_timeout"]
 [connection signal="timeout" from="OnAirTimer" to="." method="_on_on_air_timer_timeout"]
+[connection signal="timeout" from="LandTimer" to="." method="_on_land_timer_timeout"]

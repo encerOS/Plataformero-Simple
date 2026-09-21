@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://da4xpi63w48ok"]
+
+[ext_resource type="Texture2D" uid="uid://cpsa7s63nlok4" path="res://Assets/Free/Background/Pink.png" id="1_fxxw2"]
+[ext_resource type="Script" uid="uid://dkg77t114ifm7" path="res://Scenes/Levels/level_selection.gd" id="1_h8sqn"]
+[ext_resource type="Texture2D" uid="uid://csmyw7xffed0j" path="res://Assets/Free/Menu/Levels/01.png" id="2_h8sqn"]
+[ext_resource type="Texture2D" uid="uid://ed5evvga3gt6" path="res://Assets/Free/Menu/Levels/02.png" id="3_67v8r"]
+[ext_resource type="Texture2D" uid="uid://fonjvstvb326" path="res://Assets/Free/Menu/Levels/03.png" id="4_0cvkx"]
+[ext_resource type="Texture2D" uid="uid://cjyywv3ck04jp" path="res://Assets/Free/Menu/Levels/04.png" id="5_upknt"]
+[ext_resource type="Texture2D" uid="uid://sw88bcmph0mm" path="res://Assets/Free/Menu/Levels/05.png" id="6_88skk"]
+[ext_resource type="Texture2D" uid="uid://t4pjs2oblni5" path="res://Assets/Free/Menu/Buttons/Previous.png" id="8_67v8r"]
+
+[node name="Level_Selection" type="Node2D" unique_id=801264977]
+script = ExtResource("1_h8sqn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1457968050]
+offset_right = 1150.0
+offset_bottom = 647.0
+texture = ExtResource("1_fxxw2")
+
+[node name="Button_manager" type="Control" parent="." unique_id=1112048701]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level 1" type="Button" parent="Button_manager" unique_id=1873119552]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 10.175
+anchor_bottom = 1.6
+offset_left = 425.0
+offset_top = 44.0
+offset_right = 270.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+icon = ExtResource("2_h8sqn")
+
+[node name="Level 2" type="Button" parent="Button_manager" unique_id=953191110]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 147.0
+offset_right = 678.0
+offset_bottom = 231.0
+text = "Level 2"
+icon = ExtResource("3_67v8r")
+
+[node name="Level 3" type="Button" parent="Button_manager" unique_id=1072110845]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 248.0
+offset_right = 678.0
+offset_bottom = 336.0
+text = "Level 3"
+icon = ExtResource("4_0cvkx")
+
+[node name="Level 4" type="Button" parent="Button_manager" unique_id=1140968947]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 354.0
+offset_right = 681.0
+offset_bottom = 445.0
+text = "Level 4"
+icon = ExtResource("5_upknt")
+
+[node name="Level 5" type="Button" parent="Button_manager" unique_id=2142870949]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 464.0
+offset_right = 683.0
+offset_bottom = 551.0
+text = "Level 5"
+icon = ExtResource("6_88skk")
+
+[node name="Return" type="Button" parent="Button_manager" unique_id=1147317493]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 252.0
+offset_right = 365.0
+offset_bottom = 340.0
+text = "Return"
+icon = ExtResource("8_67v8r")
+
+[connection signal="pressed" from="Button_manager/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Button_manager/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Button_manager/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Button_manager/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Button_manager/Level 5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Button_manager/Return" to="." method="_on_return_pressed"]

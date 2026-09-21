@@ -35,6 +35,7 @@ var hide_pressed: bool = false
 var run_held: bool = false
 var run_released: bool = false
 var reset_pressed: bool = false
+var can_move: bool = false
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $StateLabel
@@ -59,13 +60,13 @@ func _animation():
 	if hide_pressed:
 		$AnimatedSprite2D.play('hidden')
 		return
+	if is_on_floor() and landing_charge > landing_charge_limit and !can_move:
+		$GPUParticlesLAND.restart()
+		$Camera2D.screen_shake(8, 0.5)
+		$AnimatedSprite2D.play('land')
+		landing_charge = 0
+		return
 	if direction == 0.0 and is_on_floor():
-		if landing_charge > landing_charge_limit:
-			$GPUParticlesLAND.restart()
-			$Camera2D.screen_shake(8, 0.5)
-			$AnimatedSprite2D.play('land')
-			landing_charge = 0
-			return
 		$AnimatedSprite2D.play('idle')
 		return
 	if velocity.y < 0 and !is_on_floor():
@@ -188,7 +189,6 @@ func _state_run() -> void:
 func _state_jump(delta: float) -> void:
 	_apply_gravity(delta)
 	_move_to(speed, delta)
-	print(double_jump_charge)
 	if double_jump_charge and jump_pressed:
 		velocity.y = double_jump_velocity
 		double_jump_charge = false
@@ -208,7 +208,7 @@ func _state_fall(delta: float) -> void:
 	_apply_gravity(delta)
 	_move_to(speed, delta)
 	landing_charge += delta
-	if landing_charge >= landing_charge_limit:
+	if landing_charge >= landing_charge_limit and is_on_floor():
 		_change_state(States.landing)
 		return
 	if is_on_floor():
@@ -224,15 +224,18 @@ func _state_fall(delta: float) -> void:
 func _state_landing(delta: float) -> void:
 	_apply_gravity(delta)
 	_move_to(speed, delta)
-	if is_on_floor():
-		$LandSfx.play()
-		_change_state(States.idle)
-		return
 	if can_die:
 		_change_state(States.death)
 		return
 	if reset_pressed:
 		_change_state(States.reset)
+		return
+	if is_on_floor() and !can_move:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.y = move_toward(velocity.y, 0, speed)
+		return
+	if is_on_floor() and can_move:
+		_change_state(States.idle)
 		return
 
 func _state_death(delta: float) -> void:
@@ -265,6 +268,10 @@ func _change_state(new_state: States) -> void:
 			$RunStepTimer.start()
 		States.fall:
 			landing_charge = 0
+		States.landing:
+			can_move = false
+			$LandTimer.start()
+			$LandSfx.play()
 		States.death:
 			$DeathSfx.play()
 			respawn_charge = 0
@@ -324,6 +331,9 @@ func _on_run_step_timer_timeout() -> void:
 func _on_finish_line_body_entered(_body: Node2D) -> void:
 	GameManager._load_next_level()
 
-
 func _on_on_air_timer_timeout() -> void:
 	double_jump_charge = true
+
+
+func _on_land_timer_timeout() -> void:
+	can_move = true

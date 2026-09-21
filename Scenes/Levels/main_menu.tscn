@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dr83nwy85aj2g"]
+
+[ext_resource type="Script" uid="uid://dera6kxj13m1v" path="res://Scenes/Levels/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://djnbsq71l321c" path="res://Assets/Free/Background/Yellow.png" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://drvsh0elanc2r" path="res://Assets/Free/Menu/Buttons/Play.png" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://bloql1r4i5l6t" path="res://Assets/Free/Menu/Buttons/Levels.png" id="4_qe12f"]
+[ext_resource type="Texture2D" uid="uid://bm7rdjo5tieoa" path="res://Assets/Free/Menu/Buttons/Close.png" id="5_8qtwp"]
+
+[node name="MainMenu" type="Node2D" unique_id=655972244]
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=497347986]
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("2_glbon")
+
+[node name="ButtonManager" type="Control" parent="." unique_id=1363790410]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager" unique_id=568246546]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 185.0
+offset_right = 680.0
+offset_bottom = 260.0
+text = "Start"
+icon = ExtResource("3_nlkkf")
+
+[node name="Levels" type="Button" parent="ButtonManager" unique_id=791578847]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 284.0
+offset_right = 679.0
+offset_bottom = 360.0
+text = "Levels"
+icon = ExtResource("4_qe12f")
+
+[node name="Quit" type="Button" parent="ButtonManager" unique_id=1197826501]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 385.0
+offset_right = 679.0
+offset_bottom = 463.0
+text = "Quit"
+icon = ExtResource("5_8qtwp")
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]

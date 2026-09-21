@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xuf76g6v72sb"]
 
-[ext_resource type="Script" uid="uid://oxha1qbo1eju" path="res://oscilating_box.gd" id="1_s8f3o"]
+[ext_resource type="Script" uid="uid://oxha1qbo1eju" path="res://Scenes/Entities/oscilating_box.gd" id="1_s8f3o"]
 [ext_resource type="Texture2D" uid="uid://cfrq3yucltlx4" path="res://Assets/Free/Items/Boxes/Box2/Idle.png" id="2_qapa7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]

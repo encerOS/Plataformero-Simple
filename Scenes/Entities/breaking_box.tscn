@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8c5vjjsvkp72"]
 
-[ext_resource type="Script" uid="uid://hek58hj6lewn" path="res://cumble_box.gd" id="1_juc2w"]
+[ext_resource type="Script" uid="uid://hek58hj6lewn" path="res://Scenes/Entities/crumble_box.gd" id="1_juc2w"]
 [ext_resource type="Texture2D" uid="uid://1amsnrpqjx4q" path="res://Assets/Free/Items/Boxes/Box1/Idle.png" id="2_j6brk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imiid"]
