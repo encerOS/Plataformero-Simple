@@ -1,21 +1,15 @@
 extends Node
 
-var current_level: int = 0
-var levels: Array[String] = [
-	"res://Scenes/Levels/level.tscn",
-	"res://Scenes/Levels/level2.tscn",
-	"res://Scenes/Levels/level3.tscn",
-	"res://Scenes/Levels/level4.tscn",
-	"res://Scenes/Levels/level5.tscn",
-	"res://Scenes/endScreen.tscn",
-]
+var current_level: int = 1
+var max_level: int = 5
 
 func _load_level(path: String) -> void:
-	LevelTransition.change_scene_to(path)
+	current_level = int(path)
+	LevelTransition.change_scene_to(str("res://Scenes/Levels/level",path,".tscn"))
 
 func _load_next_level() -> void:
 	current_level += 1
-	if current_level <= levels.size():
-		_load_level(levels[current_level])
+	if current_level <= max_level:
+		_load_level(str(current_level))
 	else:
-		pass
+		LevelTransition.change_scene_to("res://Scenes/Levels/endScreen.tscn")

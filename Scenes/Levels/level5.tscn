@@ -581,7 +581,7 @@ tile_set = SubResource("TileSet_av385")
 [node name="Entities" type="Node2D" parent="." unique_id=1885716387]
 
 [node name="Player" parent="Entities" unique_id=1745110940 instance=ExtResource("3_pt0sv")]
-position = Vector2(42, 538)
+position = Vector2(42, 513)
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=293859122]
 position = Vector2(508, 578)
