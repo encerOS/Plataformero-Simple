@@ -130,11 +130,20 @@ func _state_idle() -> void:
 		return
 		
 func _state_hiden() -> void:
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(2, false)
+	$DamageBox.set_deferred("monitoring", false)
 	velocity.x = move_toward(velocity.x, 0, speed)
 	if jump_pressed and is_on_floor():
+		set_collision_layer_value(1, true)
+		set_collision_mask_value(2, true)
+		$DamageBox.set_deferred("monitoring", true)
 		_change_state(States.jump)
 		return
 	if hide_pressed:
+		set_collision_layer_value(1, true)
+		set_collision_mask_value(2, true)
+		$DamageBox.set_deferred("monitoring", true)
 		_change_state(States.idle)
 		return
 
@@ -337,3 +346,9 @@ func _on_on_air_timer_timeout() -> void:
 
 func _on_land_timer_timeout() -> void:
 	can_move = true
+
+func _on_damage_box_body_entered(_body: Node2D) -> void:
+	can_die = true
+
+func _on_damage_box_area_entered(_area: Area2D) -> void:
+	can_die = true

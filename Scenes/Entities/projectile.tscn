@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bxi2h4bg4mjk3"]
+
+[ext_resource type="Script" uid="uid://dhovml6kcp4f0" path="res://Scenes/Entities/projectile.gd" id="1_5cjvl"]
+[ext_resource type="Texture2D" uid="uid://bx8l4bmn5qylu" path="res://Assets/Free/Traps/Rock Head/Idle.png" id="2_5cjvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cjvl"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iamj"]
+size = Vector2(32, 32)
+
+[node name="Projectile" type="CharacterBody2D" unique_id=716359273]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_5cjvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=405650855]
+texture = ExtResource("2_5cjvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448598604]
+shape = SubResource("RectangleShape2D_5cjvl")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1379141247]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 20)
+collision_mask = 4
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=126521265]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1006428070]
+shape = SubResource("RectangleShape2D_5iamj")
+debug_color = Color(0.8258412, 0.2639978, 0.74568015, 0.41960785)

@@ -464,8 +464,12 @@ scale_min = 0.099999994
 scale_max = 0.39999998
 color_ramp = SubResource("GradientTexture1D_buy7r")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_av385"]
+radius = 11.0
+height = 32.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1745110940 groups=["Player"]]
-collision_mask = 255
+collision_mask = 511
 script = ExtResource("1_blnjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827245466]
@@ -515,27 +519,11 @@ texture = ExtResource("8_2hnfo")
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_77xay")
 
-[node name="JumpSfx" type="AudioStreamPlayer" parent="." unique_id=407337194]
-stream = ExtResource("10_14y0q")
-volume_db = -9.136
-
-[node name="WalkSfx" type="AudioStreamPlayer" parent="." unique_id=365540740]
-stream = ExtResource("11_f5ba2")
-
 [node name="FootStepTimer" type="Timer" parent="." unique_id=821086117]
 wait_time = 0.35
 
-[node name="LandSfx" type="AudioStreamPlayer" parent="." unique_id=1215521226]
-stream = ExtResource("12_kvkok")
-
-[node name="RunSfx" type="AudioStreamPlayer" parent="." unique_id=644413468]
-stream = ExtResource("13_at1v1")
-
 [node name="RunStepTimer" type="Timer" parent="." unique_id=1409689160]
 wait_time = 0.25
-
-[node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=886485013]
-stream = ExtResource("14_at1v1")
 
 [node name="OnAirTimer" type="Timer" parent="." unique_id=380379965]
 wait_time = 0.2
@@ -543,9 +531,35 @@ one_shot = true
 
 [node name="LandTimer" type="Timer" parent="." unique_id=1468868281]
 
+[node name="JumpSfx" type="AudioStreamPlayer" parent="." unique_id=407337194]
+stream = ExtResource("10_14y0q")
+volume_db = -9.136
+
+[node name="WalkSfx" type="AudioStreamPlayer" parent="." unique_id=365540740]
+stream = ExtResource("11_f5ba2")
+
+[node name="LandSfx" type="AudioStreamPlayer" parent="." unique_id=1215521226]
+stream = ExtResource("12_kvkok")
+
+[node name="RunSfx" type="AudioStreamPlayer" parent="." unique_id=644413468]
+stream = ExtResource("13_at1v1")
+
+[node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=886485013]
+stream = ExtResource("14_at1v1")
+
+[node name="DamageBox" type="Area2D" parent="." unique_id=868816482]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox" unique_id=606621360]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_av385")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RunStepTimer" to="." method="_on_run_step_timer_timeout"]
 [connection signal="timeout" from="OnAirTimer" to="." method="_on_on_air_timer_timeout"]
 [connection signal="timeout" from="LandTimer" to="." method="_on_land_timer_timeout"]
+[connection signal="area_entered" from="DamageBox" to="." method="_on_damage_box_area_entered"]
+[connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]

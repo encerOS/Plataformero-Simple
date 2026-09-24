@@ -1,13 +1,12 @@
 extends Camera2D
 
 @export var follow_speed: float = 5
+@export var shake_decay: float = 5.0
+@export var shake_time_speed: float = 20.0
+
 var shake_intensity: float = 0.0
 var active_shake_time: float = 0.0
-
-var shake_decay: float = 5.0
-
 var shake_time: float = 0.0
-var shake_time_speed: float = 20.0
 var target: Node2D
 
 var noise = FastNoiseLite.new()
