@@ -1,7 +1,7 @@
 extends Node
 
 var current_level: int = 1
-var max_level: int = 5
+var max_level: int = 6
 
 func _load_level(path: String) -> void:
 	current_level = int(path)

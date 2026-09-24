@@ -35,6 +35,7 @@ var hide_pressed: bool = false
 var run_held: bool = false
 var run_released: bool = false
 var reset_pressed: bool = false
+var escape_pressed: bool = false
 var can_move: bool = false
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -48,6 +49,7 @@ func _player_input() -> void:
 		run_held = Input.is_action_pressed("Run")
 		run_released = Input.is_action_just_released("Run")
 		reset_pressed = Input.is_action_just_pressed("Quick Reload")
+		escape_pressed = Input.is_action_just_pressed("Exit to menu")
 	
 func _animation():
 	$GPUParticlesRUN.emitting = false
@@ -127,6 +129,9 @@ func _state_idle() -> void:
 		return
 	if reset_pressed:
 		_change_state(States.reset)
+		return
+	if escape_pressed:
+		LevelTransition.change_scene_to("res://Scenes/Levels/main_menu.tscn")
 		return
 		
 func _state_hiden() -> void:
@@ -335,7 +340,6 @@ func _on_timer_timeout() -> void:
 
 func _on_run_step_timer_timeout() -> void:
 	$RunSfx.play()
-
 
 func _on_finish_line_body_entered(_body: Node2D) -> void:
 	GameManager._load_next_level()

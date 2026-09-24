@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8fxgv2gr642x" path="res://Assets/Free/Other/Shadow.png" id="4_lhx7y"]
 [ext_resource type="Texture2D" uid="uid://bw2t0iubg1xsw" path="res://Assets/Free/Terrain/Terrain (16x16).png" id="4_lkqqh"]
 [ext_resource type="Texture2D" uid="uid://ba3e2ct5mc6wj" path="res://Assets/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="5_tq1so"]
+[ext_resource type="PackedScene" uid="uid://d11c30syfnqk0" path="res://Scenes/Entities/snail.tscn" id="8_i36j2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq1so"]
 texture = ExtResource("4_lkqqh")
@@ -917,6 +918,9 @@ sprite_frames = SubResource("SpriteFrames_imiid")
 animation = &"Waving"
 autoplay = "Waving"
 frame_progress = 0.93780017
+
+[node name="Snail" parent="." unique_id=894657468 instance=ExtResource("8_i36j2")]
+position = Vector2(390, 532)
 
 [connection signal="body_entered" from="HidingZone" to="Entities/Player" method="_on_hiding_zone_body_entered"]
 [connection signal="body_exited" from="HidingZone" to="Entities/Player" method="_on_hiding_zone_body_exited"]

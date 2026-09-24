@@ -555,8 +555,6 @@ collision_mask = 2
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_av385")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RunStepTimer" to="." method="_on_run_step_timer_timeout"]
 [connection signal="timeout" from="OnAirTimer" to="." method="_on_on_air_timer_timeout"]
